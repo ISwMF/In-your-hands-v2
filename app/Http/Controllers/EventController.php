@@ -93,8 +93,13 @@ class EventController extends Controller
         //
     }
 
-    public function getEventsByCitizen($id){
+    public function getEventsReceivedByCitizen($id){
       $events = Event::where('id_citizen_receive', $id)->get();
-      return $events;
+      return json_encode($events);
+    }
+
+    public function getEventsCreatedByCitizen($id){
+      $events = Event::where('id_citizen_creator', $id)->get();
+      return json_encode($events);
     }
 }

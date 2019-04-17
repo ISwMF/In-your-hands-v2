@@ -10,6 +10,17 @@ use Session;
 
 class HomeController extends Controller
 {
+  public function goLoginByAjax(Request $request){
+    $input = $request->all();
+    $user = User::where('user_login', $input['user'])->first();
+    session(['id' => $user->id]);
+    session(['name' => $user->user_name]);
+    session(['login' => $user->user_login]);
+    session(['points' => $user->user_points]);
+    session(['created_at' => $user->created_at]);
+    session(['updated_at' => $user->updated_at]);
+    return response()->json(['success'=>'exitoso']);
+  }
 
   public function goLogin(Request $request){
     $data = $request->all();

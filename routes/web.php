@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,18 +16,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::post('userAuth',[
-  'uses' => 'LoginController@store',
-  'as'   => 'userView'
-]);*/
-
-Route::get('/home', 'UserControlles@getHomeInformation');
-
-Route::get('/login', function(){
+Route::get('login', function(){
   return view('login');
 });
 
-Route::post('home',[
-  'uses' => 'HomeController@goLogin',
-  'as'   => 'userView'
-]);
+Route::get('home', function(){
+  return view('vista1');
+});
+
+Route::get('postLoginRequestByAjax', 'HomeController@goLoginByAjax');

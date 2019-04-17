@@ -41,17 +41,20 @@ class LoginController extends Controller
       $login->user_password = $request->password;
       $login->save();
       //----------------------------------------
-      $user = User::where('user_login', $request->user)->get();
-      if (empty($user[0])) {
-        return "No se ha encontrado coincidencia";
+      $user = User::where('user_login', $request->user)->first();
+      if (empty($user)) {
+        $arr = array ('message'=>'No se ha encontrado coincidencia');
+        return json_encode($arr);
       }else{
-        if ($request->password == $user[0]->user_password) {
-          session(['user' => $user[0]]);
-          return session('user');
+        if ($request->password == $user->user_password) {
+          $arr = array ('message'=>'Hecho', 'user' => $user->user_login);
+          return json_encode($arr);
         }else{
-          return "Contraseña incorrecta";
+          $arr = array ('message'=>'Contrasena incorrecta');
+          return json_encode($arr);
         }
       }
+
     }
 
     /**
