@@ -13,11 +13,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('vista1');
 });
 
 Route::get('login', function(){
   return view('login');
+});
+
+Route::get('busqueda', function(){
+  return view('busqueda');
 });
 
 Route::get('home', function(){

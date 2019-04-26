@@ -32,7 +32,7 @@
               <li><a href="#">REPORTES</a></li>
               <li><a href="#">SOBRE</a></li>
             @endif
-            <li><a href="#">BUSQUEDA</a></li>
+            <li><a href="/busqueda">BUSQUEDA</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             @if(Session::has('name'))
