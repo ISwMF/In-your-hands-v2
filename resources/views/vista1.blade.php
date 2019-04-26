@@ -14,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{asset('js/ajax.js')}}"></script>
   </head>
-  <body onload="getTop10Users()">
+  <body onload="getTop10Users()" style="background-color:rgba(0,0,250,0.08)">
     <div class="container" >
       <div class="page-header">
         <h1>EN SUS MANOS</h1>
@@ -29,7 +29,7 @@
             <li class="active"><a href="#">INICIO</a></li>
             @if(Session::has('name'))
               <li><a href="#">PERFIL</a></li>
-              <li><a href="#">REPORTES</a></li>
+              <li><a href="/reportes">REPORTES</a></li>
               <li><a href="#">SOBRE</a></li>
             @endif
             <li><a href="/busqueda">BUSQUEDA</a></li>

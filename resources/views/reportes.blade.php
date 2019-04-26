@@ -14,8 +14,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{asset('js/ajax.js')}}"></script>
   </head>
-  <body>
-    <div class="container" id="bodysearch">
+  <body onload="getEventsCreated({{Session::get('id')}}), getEventsReceived({{Session::get('id')}})" style="background-color:rgba(0,0,250,0.08)">
+    <div class="container">
       <div class="page-header">
         <h1>EN SUS MANOS</h1>
         <p>Sistema de eventos orientado a la ética ciudadana.</p>
@@ -29,10 +29,10 @@
             <li><a href="/home">INICIO</a></li>
             @if(Session::has('name'))
               <li><a href="#">PERFIL</a></li>
-              <li><a href="/reportes">REPORTES</a></li>
+              <li class="active"><a href="/reportes">REPORTES</a></li>
               <li><a href="#">SOBRE</a></li>
             @endif
-            <li class="active"><a href="#">BUSQUEDA</a></li>
+            <li><a href="/busqueda">BUSQUEDA</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             @if(Session::has('name'))
@@ -44,38 +44,35 @@
         </div>
       </nav>
       <br>
-      <h3>Busqueda por ID</h3>
-
-        <div class="form-group">
-          <input type="number" class="form-control" placeholder="Buscar" id="inputsearch">
-        </div>
-        <button type="submit" class="btn btn-default" onclick="getUser(inputsearch.value)">Buscar</button>
-
-      <div id="SearchingResult">
-
+      <h2>A continuación se listan todos los reportes relacionados a ti.</h2>
+      <br>
+      <h4>Reportes hechos por ti.</h4>
+      <div class="" id="reportesHechos">
 
       </div>
-      <br><br>
-    </div>
-    <footer style="margin:50px 100px">
-      <br><br>
-      <div class="row">
-        <div class="col-sm-4">
-          <p>Copyright</p>
-          <p>En sus manos @ 2019</p>
-          <p>Todos los derechos reservados</p>
-        </div>
-        <div class="col-sm-4">
-          <p><b>Organización:</b> Corporación Universitaria Minuto de Dios</p>
-          <p><b>Directora:</b> Nataly Melo</p>
-          <p><b>Ejecutor:</b> Fabian Miranda</p>
-        </div>
-        <div class="col-sm-4">
-          <p><b>Contactanos:</b></p>
-          <p>Celular: 320 8166386</p>
-          <p>Email: fmirandacor@gmail.com</p>
-        </div>
+      <h4>Reportes que te han realizado.</h4>
+      <div class="" id="reportesRecibidos">
+
       </div>
-    </footer>
+      <footer>
+        <br><br>
+        <div class="row">
+          <div class="col-sm-4">
+            <p>Copyright</p>
+            <p>En sus manos @ 2019</p>
+            <p>Todos los derechos reservados</p>
+          </div>
+          <div class="col-sm-4">
+            <p><b>Organización:</b> Corporación Universitaria Minuto de Dios</p>
+            <p><b>Directora:</b> Nataly Melo</p>
+            <p><b>Ejecutor:</b> Fabian Miranda</p>
+          </div>
+          <div class="col-sm-4">
+            <p><b>Contactanos:</b></p>
+            <p>Celular: 320 8166386</p>
+            <p>Email: fmirandacor@gmail.com</p>
+          </div>
+        </div>
+      </footer>
   </body>
 </html>

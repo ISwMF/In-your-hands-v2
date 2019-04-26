@@ -24,6 +24,10 @@ Route::get('busqueda', function(){
   return view('busqueda');
 });
 
+Route::get('reportes', function(){
+  return view('reportes');
+});
+
 Route::get('home', function(){
   return view('vista1');
 });
