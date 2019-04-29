@@ -32,4 +32,6 @@ Route::get('home', function(){
   return view('vista1');
 });
 
+Route::get('logout', 'HomeController@closeSession');
+
 Route::get('postLoginRequestByAjax', 'HomeController@goLoginByAjax');

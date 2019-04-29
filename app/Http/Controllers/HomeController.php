@@ -22,6 +22,11 @@ class HomeController extends Controller
     return response()->json(['success'=>'exitoso']);
   }
 
+  public function closeSession(Request $request){
+    $request->session()->flush();
+    return redirect('/home');
+  }
+
   public function goLogin(Request $request){
     $data = $request->all();
     $login = new Login;

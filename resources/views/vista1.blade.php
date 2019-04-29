@@ -37,7 +37,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             @if(Session::has('name'))
-            <li><a href="#"><span class="glyphicon glyphicon glyphicon-log-out"></span> Logout</a></li>
+            <li><a href="/logout"><span class="glyphicon glyphicon glyphicon-log-out"></span> Logout</a></li>
             @else
             <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             @endif

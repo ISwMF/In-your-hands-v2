@@ -280,7 +280,7 @@ function getLastEventsCreated() {
                 $('#panel_body').append('</div>');
                 $('#panel_body').css('background-color', 'rgba(0,0,250,0.2)');
                 $('#panel_default_event_created').css('background', 'white');
-                $('#panel_default_event_created').css('background-color', 'rgba(0,250,0,0.1)');
+                $('#panel_default_event_created').css('background-color', 'rgba(0,250,0,0.2)');
             } else {
                 if (result.length <= 3) {
                     for (var i = 0; i < result.length; i++) {
