@@ -16,9 +16,10 @@
   </head>
   <body onload="getTop10Users()" style="background-color:rgba(0,0,250,0.08)">
     <div class="container" >
-      <div class="page-header">
-        <h1>EN SUS MANOS</h1>
-        <p>Sistema de eventos orientado a la ética ciudadana.</p>
+      <div class="page-header" style="background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,0.1) 86%, rgba(0,0,0,0) 100%); border-radius: 10px;">
+        <br>
+        <h1 style="margin-left: 70px;">EN SUS MANOS</h1>
+        <p style="margin-left: 70px;">Sistema de eventos orientado a la ética ciudadana.</p>
       </div>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -45,7 +46,7 @@
       </nav>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12" style="background: -moz-linear-gradient(left, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 86%, rgba(0,0,0,0) 100%);  border-radius: 5px; text-align:center">
             <h2>Bienvenid@ {{Session::get('name')}} !
             </h2>
             <h4></h4>
@@ -53,6 +54,7 @@
         </div>
         <div class="row">
           @if(Session::has('name'))
+          <br>
           <script type="text/javascript">
             getLastEventsCreated({{Session::get('id')}});
             getLastEventsReceived({{Session::get('id')}});
@@ -78,24 +80,24 @@
             </div>
           </div>
           @else
-          <div class="col-sm-8">
-            <h3>Inicia sesión para ver tus reportes y quién te reportó</h3>
+          <div class="col-sm-8" style="background-color: rgba(0,0,255,0.03);  border-radius: 5px;">
+            <h3 style="margin-left:10px">Inicia sesión para ver tus reportes y quién te reportó</h3>
           </div>
           @endif
           <div class="col-sm-4">
             <div class="" id="tabla" >
             </div>
             <br>
-            <h3>Redes sociales</h3>
+            <h3 style="color:white; background-color:rgba(0,0,255,0.5); text-align:center; border-radius:5px">Redes sociales</h3>
             <br>
-            <div class="row">
-              <div class="col-sm-4">
+            <div class="row" >
+              <div class="col-sm-4" style="background-color:rgba(0,0,255,0.05); border-radius:20px; text-align:center">
                 <img src="imagenes/fb_icon_325x325.png" alt="Facebook Icon" width="80" height="80">
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-4" style="background-color:rgba(0,0,255,0.05); border-radius:20px; text-align:center">
                 <img src="imagenes/twitter-logo-blue.png" alt="Twitter Icon" width="80" height="80">
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-4" style="background-color:rgba(0,0,255,0.05); border-radius:20px; text-align:center">
                 <img src="imagenes/instagram-logo-color-512.png" alt="Instagram Icon" width="80" height="80">
               </div>
             </div>
@@ -105,18 +107,18 @@
       <hr>
       <footer>
         <br><br>
-        <div class="row">
-          <div class="col-sm-4">
+        <div class="row" style=" border-radius: 10px;">
+          <div class="col-sm-4" style="background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.1) 86%, rgba(0,0,0,0) 100%); border-top:2px solid rgba(255,255,255,0.1); border-radius:10px">
             <p>Copyright</p>
             <p>En sus manos @ 2019</p>
             <p>Todos los derechos reservados</p>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4" style="background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.1) 86%, rgba(0,0,0,0) 100%); border-top:2px solid rgba(255,255,255,0.3); border-radius:10px">
             <p><b>Organización:</b> Corporación Universitaria Minuto de Dios</p>
             <p><b>Directora:</b> Nataly Melo</p>
             <p><b>Ejecutor:</b> Fabian Miranda</p>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4" style="background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.1) 86%, rgba(0,0,0,0) 100%); border-top:2px solid rgba(255,255,255,0.3); border-radius:10px">
             <p><b>Contactanos:</b></p>
             <p>Celular: 320 8166386</p>
             <p>Email: fmirandacor@gmail.com</p>

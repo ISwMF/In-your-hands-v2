@@ -14,11 +14,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{asset('js/ajax.js')}}"></script>
   </head>
-  <body>
+  <body style="background-color:rgba(0,0,250,0.08)">
     <div class="container" id="bodysearch">
-      <div class="page-header">
-        <h1>EN SUS MANOS</h1>
-        <p>Sistema de eventos orientado a la ética ciudadana.</p>
+      <div class="page-header" style="background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,0.1) 86%, rgba(0,0,0,0) 100%); border-radius: 10px;">
+        <br>
+        <h1 style="margin-left: 70px;">EN SUS MANOS</h1>
+        <p style="margin-left: 70px;">Sistema de eventos orientado a la ética ciudadana.</p>
       </div>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -59,18 +60,18 @@
     </div>
     <footer style="margin:50px 100px">
       <br><br>
-      <div class="row">
-        <div class="col-sm-4">
+      <div class="row" style=" border-radius: 10px;">
+        <div class="col-sm-4" style="background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.1) 86%, rgba(0,0,0,0) 100%); border-top:2px solid rgba(255,255,255,0.1); border-radius:10px">
           <p>Copyright</p>
           <p>En sus manos @ 2019</p>
           <p>Todos los derechos reservados</p>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4" style="background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.1) 86%, rgba(0,0,0,0) 100%); border-top:2px solid rgba(255,255,255,0.3); border-radius:10px">
           <p><b>Organización:</b> Corporación Universitaria Minuto de Dios</p>
           <p><b>Directora:</b> Nataly Melo</p>
           <p><b>Ejecutor:</b> Fabian Miranda</p>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4" style="background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.1) 86%, rgba(0,0,0,0) 100%); border-top:2px solid rgba(255,255,255,0.3); border-radius:10px">
           <p><b>Contactanos:</b></p>
           <p>Celular: 320 8166386</p>
           <p>Email: fmirandacor@gmail.com</p>

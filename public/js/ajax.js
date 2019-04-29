@@ -30,7 +30,7 @@ function getTop10Users() {
         type: 'get',
         success: function(result) {
             result = JSON.parse(result);
-            $("#tabla").append('<h3 align = "center">Nuestro top 10.</h3>');
+            $("#tabla").append('<h3 align = "center" style="color:white; background-color:rgba(0,0,255,0.5); text-align:center; border-radius:5px">Nuestro top 10.</h3>');
             $("#tabla").append('<br>');
             $("#tabla").append('<table class="table table-striped" id="tableR">');
             $("#tableR").append('<thead id="table_head">');
@@ -48,6 +48,8 @@ function getTop10Users() {
             }
             $("#tableR").append('</tbody>');
             $("#tabla").append('</table>');
+            $("#tableR").css('background-color', 'rgba(0,0,250,0.05)');
+            $("#tableR").css('border-radius', '5px');
         }
     });
 }
@@ -84,6 +86,7 @@ function getUser() {
                     $('#SearchingResult').append('<h4 style="text-align:center ">El usuario no existe</h4>');
                     $('#SearchingResult').css('border', '1px solid rgba(0,0,0,0.3)');
                     $('#SearchingResult').css('border-radius', '5px');
+                    $('#SearchingResult').css('background-color', 'rgba(0,0,250,0.1)');
                 } else {
                     $('#SearchingResult').remove();
                     $('#bodysearch').append('<div id="SearchingResult"></div>');
@@ -95,7 +98,7 @@ function getUser() {
                         '<div class="col-sm-6" id="UserResult">' +
                         '<div class="panel panel-default">' +
                         '<div class="panel-body">' +
-                        '<div class="row">' +
+                        '<div class="row" id="targetuser">' +
                         '<div class="col-sm-4">' +
                         '<img src="imagenes/default-user.png" alt="Default user" width="150" height="150">' +
                         '</div>' +
@@ -129,6 +132,7 @@ function getUser() {
                         '</div>' +
                         '<div id="eventsbycitizen"></div>'
                     );
+                    $('#targetuser').css('background-color', 'rgba(0,0,250,0.05)');
                     $('#UserResult').css('cursor', 'pointer');
                     $('#UserResult').click(function() {
                         $('#eventsbycitizen').remove();
@@ -140,7 +144,11 @@ function getUser() {
         });
 
     } else {
-        console.log('No es un número');
+        $('#SearchingResult').remove();
+        $('#bodysearch').append('<div id="SearchingResult"></div>');
+        $('#SearchingResult').append('<h4 style="text-align:center ">El usuario no existe</h4>');
+        $('#SearchingResult').css('border', '1px solid rgba(0,0,0,0.3)');
+        $('#SearchingResult').css('border-radius', '5px');
     }
 }
 
@@ -188,6 +196,7 @@ function getEventsById() {
                         '</div>'
                     );
                     $('#event_' + i).css('border-bottom', '1px solid rgba(0,0,0,0.3)');
+                    $('#event_' + i).css('background-color', 'rgba(0,0,250,0.05)');
                 }
             }
             $("html, body").animate({
@@ -209,11 +218,14 @@ function getLastEventsReceived() {
                 $('#panel_body_event_received').append('<p>Aún no tienes eventos registrados.</p>');
                 $('#panel_default_event_received').append('</div>');
                 $('#panel_body_2').append('</div>');
+                $('#panel_body_2').css('background-color', 'rgba(0,0,250,0.2)');
+                $('#panel_default_event_received').css('background-color', 'rgba(0,250,0,0.1)');
             } else {
                 if (result.length <= 3) {
                     for (var i = 0; i < result.length; i++) {
                         $('#panel_body_2').append('<div class="panel panel-default" id="panel_default_event_received_' + i + '">');
                         $('#panel_default_event_received_' + i).append('<div class="panel-body" id="panel_body_event_received_' + i + '">');
+                        $('#panel_default_event_received_' + i).css('background-color', 'rgba(0,250,0,0.2)');
                         $('#panel_body_event_received_' + i).append('<div class="row" id="row_event_received_' + i + '">');
                         $('#row_event_received_' + i).append('<div class="col-sm-9" id="col_received_a_' + i + '">');
                         $('#col_received_a_' + i).append('<p>Situación: ' + result[0].event_situation + '</p>');
@@ -226,11 +238,14 @@ function getLastEventsReceived() {
                         $('#panel_default_event_received_' + i).append('</div>');
                         $('#panel_body_2').append('</div>');
                     }
-                    $('#panel_body_2').append('<button type="button" name="button" class="btn btn-success btn-sm btn-block">Ver todos</button>');
+                    $('#panel_body_2').append('<button type="button" name="button" class="btn btn-success btn-sm btn-block" onclick="window.location=\'/reportes\';">Ver todos</button>');
+                    $('#panel_body_2').css('background-color', 'rgba(0,0,250,0.2)');
+
                 } else {
                     for (var i = 0; i < 3; i++) {
                         $('#panel_body_2').append('<div class="panel panel-default" id="panel_default_event_received_' + i + '">');
                         $('#panel_default_event_received_' + i).append('<div class="panel-body" id="panel_body_event_received_' + i + '">');
+                        $('#panel_default_event_received_' + i).css('background-color', 'rgba(0,250,0,0.2)');
                         $('#panel_body_event_received_' + i).append('<div class="row" id="row_event_received_' + i + '">');
                         $('#row_event_received_' + i).append('<div class="col-sm-9" id="col_received_a_' + i + '">');
                         $('#col_received_a_' + i).append('<p>Situación: ' + result[0].event_situation + '</p>');
@@ -243,7 +258,8 @@ function getLastEventsReceived() {
                         $('#panel_default_event_received_' + i).append('</div>');
                         $('#panel_body_2').append('</div>');
                     }
-                    $('#panel_body_2').append('<button type="button" name="button" class="btn btn-success btn-sm btn-block">Ver todos</button>');
+                    $('#panel_body_2').append('<button type="button" name="button" class="btn btn-success btn-sm btn-block" onclick="window.location=\'/reportes\';">Ver todos</button>');
+                    $('#panel_body_2').css('background-color', 'rgba(0,0,250,0.2)');
                 }
             }
         }
@@ -262,11 +278,15 @@ function getLastEventsCreated() {
                 $('#panel_body_event_created').append('<p>Aún no tienes eventos registrados.</p>');
                 $('#panel_default_event_created').append('</div>');
                 $('#panel_body').append('</div>');
+                $('#panel_body').css('background-color', 'rgba(0,0,250,0.2)');
+                $('#panel_default_event_created').css('background', 'white');
+                $('#panel_default_event_created').css('background-color', 'rgba(0,250,0,0.1)');
             } else {
                 if (result.length <= 3) {
                     for (var i = 0; i < result.length; i++) {
                         $('#panel_body').append('<div class="panel panel-default" id="panel_default_event_created_' + i + '">');
                         $('#panel_default_event_created_' + i).append('<div class="panel-body" id="panel_body_event_created_' + i + '">');
+                        $('#panel_default_event_created_' + i).css('background-color', 'rgba(0,250,0,0.2)');
                         $('#panel_body_event_created_' + i).append('<div class="row" id="row_event_created_' + i + '">');
                         $('#row_event_created_' + i).append('<div class="col-sm-9" id="col_created_a_' + i + '">');
                         $('#col_created_a_' + i).append('<p>Situación: ' + result[i].event_situation + '</p>');
@@ -280,11 +300,13 @@ function getLastEventsCreated() {
                         $('#panel_body').append('</div>');
 
                     }
-                    $('#panel_body').append('<button type="button" name="button" class="btn btn-success btn-sm btn-block">Ver todos</button>');
+                    $('#panel_body').append('<button type="button" name="button" class="btn btn-success btn-sm btn-block" onclick="window.location=\'/reportes\';">Ver todos</button>');
+                    $('#panel_body').css('background-color', 'rgba(0,0,250,0.2)');
                 } else {
                     for (var i = 0; i < 3; i++) {
                         $('#panel_body').append('<div class="panel panel-default" id="panel_default_event_created_' + i + '">');
                         $('#panel_default_event_created_' + i).append('<div class="panel-body" id="panel_body_event_created_' + i + '">');
+                        $('#panel_default_event_created_' + i).css('background-color', 'rgba(0,250,0,0.2)');
                         $('#panel_body_event_created_' + i).append('<div class="row" id="row_event_created_' + i + '">');
                         $('#row_event_created_' + i).append('<div class="col-sm-9" id="col_created_a_' + i + '">');
                         $('#col_created_a_' + i).append('<p>Situación: ' + result[i].event_situation + '</p>');
@@ -298,7 +320,8 @@ function getLastEventsCreated() {
                         $('#panel_body').append('</div>');
 
                     }
-                    $('#panel_body').append('<button type="button" name="button" class="btn btn-success btn-sm btn-block">Ver todos</button>');
+                    $('#panel_body').append('<button type="button" name="button" class="btn btn-success btn-sm btn-block" onclick="window.location=\'/reportes\';">Ver todos</button>');
+                    $('#panel_body').css('background-color', 'rgba(0,0,250,0.2)');
                 }
             }
         }
@@ -312,7 +335,7 @@ function getEventsCreated() {
         success: function(result) {
             result = JSON.parse(result);
             if (result.length == 0) {
-              $('#reportesHechos').append('<h4 style="text-align:center">Podrías poner aquí la persona que te cae mal, ¡comienza a reportar!</h4><br><br>')
+                $('#reportesHechos').append('<h4 style="text-align:center">Podrías poner aquí la persona que te cae mal, ¡comienza a reportar!</h4><br><br>')
             } else {
                 $('#reportesHechos').append('<div class="panel-group" id="panel_reportes_hechos"></panel>');
                 for (var i = 0; i < result.length; i++) {
@@ -333,42 +356,47 @@ function getEventsCreated() {
                         '</div>' +
                         '</div>'
                     );
+                    $('#reporte_hecho_numero_' + i).css('background-color', 'rgba(0, 0, 255, 0.15)');
                 }
+
             }
+
         }
     });
 }
 
 function getEventsReceived() {
-  $.ajax({
-      url: "http://localhost:8000/api/users/" + arguments[0] + "/eventsreceived",
-      type: 'get',
-      success: function(result) {
-          result = JSON.parse(result);
-          if (result.length == 0) {
-            $('#reportesRecibidos').append('<h4 style="text-align:center">No tienes eventos, ¡sal a la calle y consigue algunos!</h4><br><br>')
-          } else {
-              $('#reportesRecibidos').append('<div class="panel-group" id="panel_reportes_recibidos"></panel>');
-              for (var i = 0; i < result.length; i++) {
-                  $('#panel_reportes_recibidos').append(
-                      '<div class="panel panel-default">' +
-                      '<div class="panel-heading">' +
-                      '<h4 class="panel-title">' +
-                      '<a data-toggle="collapse" href="#reporte_recibido_numero_' + i + '">Registro #' + result[i].id + '</a>' +
-                      '</h4>' +
-                      '</div>' +
-                      '<div id="reporte_recibido_numero_' + i + '" class="panel-collapse collapse">' +
-                      '<div class="panel-body">' +
-                      '<p><b>Fecha:</b> ' + result[i].event_date + '</p>' +
-                      '<p><b>Lugar:</b> ' + result[i].event_place + '</p>' +
-                      '<p><b>Situación:</b> ' + result[i].event_situation + '</p>' +
-                      '<p><b>Descripción:</b> ' + result[i].event_description + '</p>' +
-                      '</div>' +
-                      '</div>' +
-                      '</div>'
-                  );
-              }
-          }
-      }
-  });
+    $.ajax({
+        url: "http://localhost:8000/api/users/" + arguments[0] + "/eventsreceived",
+        type: 'get',
+        success: function(result) {
+            result = JSON.parse(result);
+            if (result.length == 0) {
+                $('#reportesRecibidos').append('<h4 style="text-align:center">No tienes eventos, ¡sal a la calle y consigue algunos!</h4><br><br>')
+            } else {
+                $('#reportesRecibidos').append('<div class="panel-group" id="panel_reportes_recibidos"></panel>');
+                for (var i = 0; i < result.length; i++) {
+                    $('#panel_reportes_recibidos').append(
+                        '<div class="panel panel-default">' +
+                        '<div class="panel-heading">' +
+                        '<h4 class="panel-title">' +
+                        '<a data-toggle="collapse" href="#reporte_recibido_numero_' + i + '">Registro #' + result[i].id + '</a>' +
+                        '</h4>' +
+                        '</div>' +
+                        '<div id="reporte_recibido_numero_' + i + '" class="panel-collapse collapse">' +
+                        '<div class="panel-body">' +
+                        '<p><b>Fecha:</b> ' + result[i].event_date + '</p>' +
+                        '<p><b>Lugar:</b> ' + result[i].event_place + '</p>' +
+                        '<p><b>Situación:</b> ' + result[i].event_situation + '</p>' +
+                        '<p><b>Descripción:</b> ' + result[i].event_description + '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>'
+                    );
+
+                    $('#reporte_recibido_numero_' + i).css('background-color', 'rgba(0, 0, 255, 0.15)');
+                }
+            }
+        }
+    });
 }
